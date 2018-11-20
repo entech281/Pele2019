@@ -1,24 +1,24 @@
-# Pele 2019
+# Pele2019
 The resurrection of Pele.
 
 ### Build Status
->Outdated version for Macarena
-
-[![Build Status](https://travis-ci.org/entech281/Season_2018.svg?branch=master)](https://travis-ci.org/entech281/Season_2018)
+[![Build Status](https://travis-ci.org/entech281/Pele2019.svg?branch=master)](https://travis-ci.org/entech281/Pele2019)
 
 ### Terminal Commands
-* pwd (to find current directory)
-* ls (to see the names of all files inside current directory)
-* git reset --hard _Commit Identifier Code_ (to rollback to a previous commit)
-* git reset --hard (to reset to the last _git pull_'ed version of a branch)
-* git reset -f (to undo a branch checkout)
-* git checkout -b _Branch Name_ (to create a branch)
+* To view your current directory, `pwd`
+* To view all files in your current directory, `ls`
+
+* To checkout an existing branch, `git checkout BranchName`
+* To create a new branch, `git checkout -b BranchName`
+
+* To rollback to the most recent pull, `git reset --hard`
+* To rollback to a previous commit, `git reset --hard CommitIdentifierCode`
 
 ### External Links
 - [Understanding PIDF and gains](https://github.com/entech281/Season_2018/wiki/Understanding-PIDF-and-gains)
 - [FRC Java Programming](https://wpilib.screenstepslive.com/s/currentCS/m/java)
 
-<sub><sup>[Back to top](#contents)</sup></sub>
+<sub><sup>[Back to top](#pele2019)</sup></sub>
 
 💃🎵🥁🎤👏🏻
 
