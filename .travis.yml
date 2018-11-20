@@ -9,4 +9,4 @@ script: # Modify the commands below to build your repository.
   - ./gradlew build 
 
 notifications:
-  slack: team281programming:mpBJ2mwOFaAywAQDGPA2GV8d
+  slack: entech281:mpBJ2mwOFaAywAQDGPA2GV8d
