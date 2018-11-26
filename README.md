@@ -17,7 +17,7 @@ The resurrection of Pele.
 
 * To rollback to a previous commit, `git reset --hard CommitIdentifierCode` 
 
-* To build your code, run `./gradlew jacocoTestReport`
+* To build your code, `./gradlew jacocoTestReport`
 
 ### External Links
 - [Understanding PIDF and gains](https://github.com/entech281/Season_2018/wiki/Understanding-PIDF-and-gains)
