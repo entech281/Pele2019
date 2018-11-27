@@ -1,18 +1,11 @@
-import.java.util.List;
+import java.util.List;
 
 public class FollowPath extends Command {
 
     private Drivesubsystem subsystem;
-    List<Action> list;
+    private List<AutonomousAction> list;
 
-    /*
-       When implemented, an Action object should indicate (for Tank Drive) the type of action(through the boolean isTurn) followed by a value indicating how much (i.e. distance; time)
-
-       The Boolean Indicates:
-       False = move (forward = positive; backwrd = negative)
-       True = turn (cw = positive; ccw = negative)
-    */
-    public FollowPath(DriveSubsystem subsystem, List<Action> list) {
+    public FollowPath(DriveSubsystem subsystem, List<AutonomousAction> list) {
         this.subsystem = subsystem;
         this.list = list;
     }
@@ -21,14 +14,13 @@ public class FollowPath extends Command {
     }
 
     protected void execute() {
+        double x = AutonomousAction.getx();
+        double y = AutonomousAction.gety();
+        double theta = AutonomousAction.getTheta();
+        double time = AutonomousAction.getTime();
 
-        for(Action a:list){
-            if(a.isTurn()){
-
-            }
-            else{
-
-            }
+        for(AutonomousAction a:list){
+            DriveSubsystem.drive(x,y,theta,time);
         }
     } 
 
