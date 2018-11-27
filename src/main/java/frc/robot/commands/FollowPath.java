@@ -11,7 +11,7 @@ public class FollowPath extends Command {
     private DriveSubsystem d;
     private List<AutonomousAction> list;
 
-    public FollowPath(DriveSubsystem subsystem, List<AutonomousAction> list) {
+    public FollowPath(DriveSubsystem d, List<AutonomousAction> list) {
         this.d = d;
         this.list = list;
     }
