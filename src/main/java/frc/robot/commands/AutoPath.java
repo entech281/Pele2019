@@ -8,7 +8,7 @@ import frc.robot.subsystems.Position;
 
 
 
-public class AutoPath extends Position{
+/*public class AutoPath extends Position{
 
 
 
@@ -16,4 +16,4 @@ public class AutoPath extends Position{
     public List<Position> createAutoPath(){
         PositionCalculator.go(10,10,0).go(10,10,0).right(90).build();
     }
-}
+}*/
