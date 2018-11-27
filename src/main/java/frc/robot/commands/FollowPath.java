@@ -1,29 +1,33 @@
+package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.commands.AutonomousAction;
+
 import java.util.List;
 
 public class FollowPath extends Command {
 
-    private Drivesubsystem subsystem;
+    private DriveSubsystem d;
     private List<AutonomousAction> list;
 
     public FollowPath(DriveSubsystem subsystem, List<AutonomousAction> list) {
-        this.subsystem = subsystem;
+        this.d = d;
         this.list = list;
     }
-    
+    @Override
     protected void initialize() {
     }
 
+    @Override
     protected void execute() {
-        double x = AutonomousAction.getx();
-        double y = AutonomousAction.gety();
-        double theta = AutonomousAction.getTheta();
-        double time = AutonomousAction.getTime();
-
+    
         for(AutonomousAction a:list){
-            DriveSubsystem.drive(x,y,theta,time);
+            d.driveNSeconds(a.getTime(),a.getX(),a.getX(),a.getTheta());
         }
     } 
 
+    @Override
     protected boolean isFinished() {
         return false;
     }
@@ -31,6 +35,7 @@ public class FollowPath extends Command {
     protected void end() {
     }
 
+    @Override
     protected void interrupted() {
     }
 }
