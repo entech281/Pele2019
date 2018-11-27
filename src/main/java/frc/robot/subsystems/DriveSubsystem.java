@@ -41,12 +41,14 @@ public class DriveSubsystem extends Subsystem{
     }
     @Override
     public void periodic() {
-        timedCommand currentCommand = commandStack.get(0);
-        if(!driveTimer.hasPeriodPassed(currentCommand.time)){
-            drive(currentCommand.x,currentCommand.y,currentCommand.z);
-        }else{
-            commandStack.remove(0);
-            driveTimer.reset();
+        if( commandStack.isEmpty()){
+            timedCommand currentCommand = commandStack.get(0);
+            if(!driveTimer.hasPeriodPassed(currentCommand.time)){
+                drive(currentCommand.x,currentCommand.y,currentCommand.z);
+            }else{
+                commandStack.remove(0);
+                driveTimer.reset();
+            }
         }
     }
 
