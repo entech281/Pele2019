@@ -3,7 +3,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Timer;
+import java.util.List;
 import java.util.LinkedList;
+
 public class DriveSubsystem extends Subsystem{
     private class timedCommand{
         public double x;
@@ -23,9 +25,11 @@ public class DriveSubsystem extends Subsystem{
     private WPI_TalonSRX m_rearRight  = new WPI_TalonSRX(1);
     private MecanumDrive m_robotDrive = new MecanumDrive(m_frontLeft,m_rearLeft,m_frontRight,m_rearRight);
     private Timer driveTimer          = new Timer();
-    private timedCommand currentCommand;
+    private List<timedCommand> commandStack = new LinkedList<timedCommand>();
     @Override
     protected void initDefaultCommand() {
+        driveTimer.start();
+        driveTimer.reset();
         m_frontLeft.setInverted(true);
     }
     public void drive(double x, double y, double theta){
@@ -33,12 +37,20 @@ public class DriveSubsystem extends Subsystem{
     }
     
     public void driveNSeconds(double n, double x, double y, double theta){
-        driveTimer.start();
-        driveTimer.reset();
-        currentCommand = new timedCommand(x, y, theta, n);
+        commandStack.add(new timedCommand(x, y, theta, n));
     }
     @Override
     public void periodic() {
-        
+        timedCommand currentCommand = commandStack.get(0);
+        if(!driveTimer.hasPeriodPassed(currentCommand.time)){
+            drive(currentCommand.x,currentCommand.y,currentCommand.z);
+        }else{
+            commandStack.remove(0);
+            driveTimer.reset();
+        }
+    }
+
+    public boolean isDoneWithStack(){
+        return commandStack.isEmpty();
     }
 }
