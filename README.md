@@ -20,11 +20,12 @@ The resurrection of Pele.
 * To build your code, `./gradlew jacocoTestReport`
 
 ### External Links
-- [Understanding PIDF and gains](https://github.com/entech281/Season_2018/wiki/Understanding-PIDF-and-gains)
 - [FRC Java Programming](https://wpilib.screenstepslive.com/s/currentCS/m/java)
+- [PIDF and gains](https://github.com/entech281/Season_2018/wiki/Understanding-PIDF-and-gains)
+- [Pure Pursuit Algorithm](https://github.com/xiaoxiae/PurePursuitAlgorithm)
 
 <sub><sup>[Back to top](#pele2019)</sup></sub>
 
 💃🎵🥁🎤👏🏻
 
-##### Last updated 11/19/18 by Santiago Gutierrez #####
+##### Last updated 12/3/18 by Santiago Gutierrez #####
