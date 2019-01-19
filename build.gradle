@@ -1,9 +1,6 @@
 plugins {
     id "java"
     id "edu.wpi.first.GradleRIO" version "2019.2.1"
-    id "findbugs"
-    id "jacoco"
-    id 'com.github.ksoichiro.console.reporter' version '0.5.0'
 }
 
 sourceCompatibility = JavaVersion.VERSION_11
@@ -53,6 +50,7 @@ repositories {
 dependencies {
     compile wpi.deps.wpilib()
     compile wpi.deps.vendor.java()
+
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
     testCompile 'junit:junit:4.12'
@@ -65,31 +63,5 @@ jar {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
 }
-wrapper {
-    gradleVersion = '4.9'
-}
-
-jacoco {
-    toolVersion = "0.8.1"
-    reportsDir = file("$buildDir/jacocoHtml")
-}
-
-findbugs{
-    ignoreFailures = false
-    reportLevel = "high"
-}
 
 
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination file("${buildDir}/jacocoHtml")
-    }
-}
-tasks.withType(FindBugs) {
-    reports {
-        xml.enabled false
-        html.enabled true
-    }
-}
